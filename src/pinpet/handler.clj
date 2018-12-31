@@ -6,10 +6,10 @@
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [pinpet.login.database :as login-database]
             [pinpet.login.conversion :as login-conversion]
-            [pinpet.login.security :as login-security]))
+            [pinpet.login.security :as login-security]
+            [pinpet.config :as config]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
   (POST "/api/login" request
     (-> request
       login-conversion/request->credentials
