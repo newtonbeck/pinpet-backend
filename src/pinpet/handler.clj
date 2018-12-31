@@ -3,34 +3,19 @@
             [compojure.route :as route]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
-            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]))
-
-(def db [{:email "luke@rebels.org", :password "x-wing"}])
-
-(defn request->credentials [request]
-  (let [email (get-in request [:body "email"])
-        password (get-in request [:body "password"])]
-    {:email email, :password password}))
-
-(defn find-user-by-credentials [credentials]
-  (->> db
-    (filter (partial = credentials))
-    first))
-
-(defn user->token [user]
-  (:email user))
-
-(defn token->response [token]
-  (ring-response/response {:token token}))
+            [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
+            [pinpet.login.database :as login-database]
+            [pinpet.login.conversion :as login-conversion]
+            [pinpet.login.security :as login-security]))
 
 (defroutes app-routes
   (GET "/" [] "Hello World")
   (POST "/api/login" request
     (-> request
-      request->credentials
-      find-user-by-credentials
-      user->token
-      token->response))
+      login-conversion/request->credentials
+      login-database/find-user-by-credentials
+      login-security/user->token
+      login-conversion/token->response))
   (route/not-found "Not Found"))
 
 (def app
