@@ -1,22 +1,18 @@
 (ns pinpet.handler
   (:require [compojure.core :refer :all]
-            [compojure.route :as route]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [pinpet.login.database :as login-database]
             [pinpet.login.conversion :as login-conversion]
-            [pinpet.login.security :as login-security]
+            [pinpet.login.controller :as login-controller]
             [pinpet.config :as config]))
 
 (defroutes app-routes
   (POST "/api/login" request
     (-> request
       login-conversion/request->credentials
-      login-database/find-user-by-credentials
-      login-security/user->token
-      login-conversion/token->response))
-  (route/not-found "Not Found"))
+      login-controller/log-in
+      login-conversion/token->response)))
 
 (def app
   (-> app-routes
