@@ -7,4 +7,6 @@
     {:email email, :password password}))
 
 (defn token->response [token]
-  (ring-response/response {:token token}))
+  (if token
+    (ring-response/response {:token token})
+    {:status 401}))

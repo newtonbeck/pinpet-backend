@@ -20,4 +20,4 @@
   (fact "with token"
     (conversion/token->response token) => {:body {:token token}, :headers {}, :status 200})
   (fact "without token"
-    (conversion/token->response nil) => {:body {:token nil}, :headers {}, :status 200}))
+    (conversion/token->response nil) => {:status 401}))
