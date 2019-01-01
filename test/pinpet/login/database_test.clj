@@ -2,11 +2,13 @@
   (:use [midje.sweet])
   (:require [pinpet.login.database :as database]))
 
+(def id 1)
+(def name "Luke Skywalker")
 (def email "luke@rebels.org")
 (def password "x-wing")
 
 (facts "find-user-by-credentials"
   (fact "existing credentials"
-    (database/find-user-by-credentials {:email email, :password password}) => {:id 1, :name "Luke Skywalker", :email email, :password password})
+    (database/find-user-by-credentials {:email email, :password password}) => {:id id, :name name, :email email, :password password})
     (fact "unexisting credentials"
       (database/find-user-by-credentials {:email "foo@bar.org", :password password}) => nil))
