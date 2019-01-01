@@ -6,4 +6,6 @@
 
 (facts "user->token"
   (fact "with token"
-    (security/user->token {:email email}) => email))
+    (security/user->token {:email email}) => email)
+  (fact "without token"
+    (security/user->token nil) => nil))
