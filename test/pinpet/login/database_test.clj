@@ -7,6 +7,6 @@
 
 (facts "find-user-by-credentials"
   (fact "existing credentials"
-    (database/find-user-by-credentials {:email email, :password password}) => {:email email, :password password})
+    (database/find-user-by-credentials {:email email, :password password}) => {:id 1, :name "Luke Skywalker", :email email, :password password})
     (fact "unexisting credentials"
       (database/find-user-by-credentials {:email "foo@bar.org", :password password}) => nil))

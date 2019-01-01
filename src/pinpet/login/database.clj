@@ -5,4 +5,5 @@
 (defn find-user-by-credentials [{:keys [email password]}]
   (-> (config/read)
     :db
-    (jdbc/query ["select * from users where email = ? and password = ?" email password])))
+    (jdbc/query ["select * from users where email = ? and password = ?" email password])
+    first))
