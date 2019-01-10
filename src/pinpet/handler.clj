@@ -5,6 +5,8 @@
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [pinpet.login.conversion :as login-conversion]
             [pinpet.login.controller :as login-controller]
+            [pinpet.location.conversion :as location-conversion]
+            [pinpet.location.controller :as location-controller]
             [pinpet.config :as config]))
 
 (defroutes app-routes
@@ -12,7 +14,12 @@
     (-> request
       login-conversion/request->credentials
       login-controller/log-in
-      login-conversion/token->response)))
+      login-conversion/token->response))
+  (GET "/api/pets/locations" request
+    (-> request
+      location-conversion/request->user
+      location-controller/find-pets-locations-by-user
+      location-conversion/locations->response)))
 
 (def app
   (-> app-routes
