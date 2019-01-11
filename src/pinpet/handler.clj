@@ -19,7 +19,7 @@
     (-> request
       location-conversion/request->user
       location-controller/find-pets-locations-by-user
-      location-conversion/locations->response)))
+      location-conversion/pets->response)))
 
 (def app
   (-> app-routes

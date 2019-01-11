@@ -6,5 +6,5 @@
         id (Integer/parseInt token)]
     {:id id}))
 
-(defn locations->response [locations]
-  (ring-response/response locations))
+(defn pets->response [pets]
+  (ring-response/response pets))
