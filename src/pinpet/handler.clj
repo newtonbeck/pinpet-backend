@@ -21,7 +21,7 @@
       location-controller/find-pets-locations-by-user
       location-conversion/pets->response))
   (GET "/api/health" []
-    {:status 200}))
+    (ring-response/response {:health true})))
 
 (def app
   (-> app-routes
