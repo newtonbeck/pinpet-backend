@@ -9,3 +9,7 @@ run:
 
 logs:
 	docker logs -f api
+
+publish:
+	docker tag api gcr.io/pinpet/api:latest
+	docker push gcr.io/pinpet/api:latest

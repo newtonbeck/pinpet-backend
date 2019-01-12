@@ -15,9 +15,8 @@ spec:
         app: api
     spec:
       containers:
-        - image: api
+        - image: gcr.io/pinpet/api:latest
           name: api
           ports:
             - containerPort: 3000
               name: ring
-
