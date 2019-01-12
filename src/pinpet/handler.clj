@@ -19,7 +19,9 @@
     (-> request
       location-conversion/request->user
       location-controller/find-pets-locations-by-user
-      location-conversion/pets->response)))
+      location-conversion/pets->response))
+  (GET "/api/health" []
+    {:status 200}))
 
 (def app
   (-> app-routes
