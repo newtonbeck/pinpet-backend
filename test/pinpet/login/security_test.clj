@@ -2,10 +2,8 @@
   (:use [midje.sweet])
   (:require [pinpet.login.security :as security]))
 
-(def email "luke@rebels.org")
-
 (facts "user->token"
   (fact "with token"
-    (security/user->token {:email email}) => email)
+    (security/user->token {:id 1}) => 1)
   (fact "without token"
     (security/user->token nil) => nil))
