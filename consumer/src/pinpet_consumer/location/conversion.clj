@@ -10,4 +10,4 @@
         longitude (get location "lon")
         height (get location "hei")
         pet (get location "pet")]
-    {:lat latitude, :lon longitude, :hei height, :pet pet}))
+    {:latitude latitude, :longitude longitude, :height height, :pet_id pet}))
