@@ -3,6 +3,9 @@
             [clojurewerkz.machine-head.client :as mh])
   (:gen-class))
 
+(defn- consume [^String topic _ ^bytes payload]
+  (println (String. payload "UTF-8")))
+
 (defn -main
   [& args]
   (let [config (read-config)
@@ -13,5 +16,4 @@
         topic (:topic mqtt-config)
         connection-string (str protocol "://" host ":" port)
         connection (mh/connect connection-string)]
-    (mh/subscribe connection {topic 0} (fn [^String topic _ ^bytes payload]
-                                        (println (String. payload "UTF-8"))))))
+    (mh/subscribe connection {topic 0} consume)))
