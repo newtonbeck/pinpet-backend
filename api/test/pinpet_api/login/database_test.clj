@@ -1,4 +1,4 @@
-(ns pinpet.login.database-test
+(ns pinpet-api.login.database-test
   (:use [midje.sweet])
   (:require [pinpet.login.database :as database]))
 

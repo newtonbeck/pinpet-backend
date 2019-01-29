@@ -1,4 +1,4 @@
-(ns pinpet.login.conversion-test
+(ns pinpet-api.login.conversion-test
   (:use midje.sweet)
   (:require [pinpet.login.conversion :as conversion]))
 

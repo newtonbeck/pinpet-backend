@@ -1,4 +1,4 @@
-(ns pinpet.location.conversion
+(ns pinpet-api.location.conversion
   (:require [ring.util.response :as ring-response]))
 
 (defn request->user [request]

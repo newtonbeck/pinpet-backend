@@ -1,4 +1,4 @@
-(ns pinpet.login.controller
+(ns pinpet-api.login.controller
   (:require [pinpet.login.database :as db]
             [pinpet.login.security :as security]))
 

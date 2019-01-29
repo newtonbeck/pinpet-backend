@@ -1,4 +1,4 @@
-(ns pinpet.pet.database
+(ns pinpet-api.pet.database
   (:require [pinpet.config :as config]
   [clojure.java.jdbc :as jdbc]))
 

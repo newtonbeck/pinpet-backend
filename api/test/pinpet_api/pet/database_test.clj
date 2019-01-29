@@ -1,4 +1,4 @@
-(ns pinpet.pet.database-test
+(ns pinpet-api.pet.database-test
   (:use [midje.sweet])
   (:require [pinpet.pet.database :as pet-database]))
 

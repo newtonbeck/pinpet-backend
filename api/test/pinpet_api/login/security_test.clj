@@ -1,4 +1,4 @@
-(ns pinpet.login.security-test
+(ns pinpet-api.login.security-test
   (:use [midje.sweet])
   (:require [pinpet.login.security :as security]))
 

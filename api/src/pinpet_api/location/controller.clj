@@ -1,4 +1,4 @@
-(ns pinpet.location.controller
+(ns pinpet-api.location.controller
   (:require [pinpet.pet.database :as pet-database]
             [pinpet.location.database :as location-database]))
 

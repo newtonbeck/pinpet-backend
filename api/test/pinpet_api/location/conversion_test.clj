@@ -1,4 +1,4 @@
-(ns pinpet.location.conversion-test
+(ns pinpet-api.location.conversion-test
   (:use midje.sweet)
   (:require [pinpet.location.conversion :as conversion]))
 

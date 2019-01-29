@@ -1,4 +1,4 @@
-(ns pinpet.handler
+(ns pinpet-api.handler
   (:require [compojure.core :refer :all]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]

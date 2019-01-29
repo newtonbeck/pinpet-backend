@@ -1,4 +1,4 @@
-(ns pinpet.location.database-test
+(ns pinpet-api.location.database-test
   (:use midje.sweet)
   (:require [pinpet.location.database :as location-database]))
 
