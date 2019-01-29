@@ -15,3 +15,13 @@ CREATE TABLE `pets` (
   `user_id` INT,
   FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
 );
+
+CREATE TABLE `locations` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `pet_id` INT,
+  `latitude` REAL,
+  `longitude` REAL,
+  `height` REAL,
+  `created_at` TIMESTAMP,
+  FOREIGN KEY (`pet_id`) REFERENCES `pets`(`id`)
+);
