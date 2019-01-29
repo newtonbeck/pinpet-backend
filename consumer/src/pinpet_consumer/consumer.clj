@@ -1,10 +1,14 @@
 (ns pinpet-consumer.consumer
-  (:require [pinpet-consumer.config :refer [read-config]]
-            [clojurewerkz.machine-head.client :as mh])
+  (:require [clojurewerkz.machine-head.client :as mh]
+            [pinpet-consumer.config :refer [read-config]]
+            [pinpet-consumer.location.conversion :as conversion]
+            [pinpet-consumer.location.database :as db])
   (:gen-class))
 
 (defn- consume [^String topic _ ^bytes payload]
-  (println (String. payload "UTF-8")))
+  (-> payload
+    (conversion/payload->location)
+    (db/add-location!)))
 
 (defn -main
   [& args]
