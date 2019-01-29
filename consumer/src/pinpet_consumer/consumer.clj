@@ -8,7 +8,8 @@
 (defn- consume [^String topic _ ^bytes payload]
   (-> payload
     (conversion/payload->location)
-    (db/add-location!)))
+    (db/add-location!)
+    (println)))
 
 (defn -main
   [& args]
