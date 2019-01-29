@@ -1,6 +1,6 @@
 (ns pinpet-api.pet.database-test
   (:use [midje.sweet])
-  (:require [pinpet.pet.database :as pet-database]))
+  (:require [pinpet-api.pet.database :as pet-database]))
 
 (facts "find-pets-by-user"
   (fact "user has pets"

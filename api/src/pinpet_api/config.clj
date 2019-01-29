@@ -4,7 +4,7 @@
 
 (def file "config.edn")
 
-(defn read []
+(defn read-config []
   (-> file
     io/resource
     slurp

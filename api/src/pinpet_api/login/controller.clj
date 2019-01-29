@@ -1,6 +1,6 @@
 (ns pinpet-api.login.controller
-  (:require [pinpet.login.database :as db]
-            [pinpet.login.security :as security]))
+  (:require [pinpet-api.login.database :as db]
+            [pinpet-api.login.security :as security]))
 
 (defn log-in [credentials]
   (-> credentials

@@ -1,6 +1,6 @@
 (ns pinpet-api.location.database-test
   (:use midje.sweet)
-  (:require [pinpet.location.database :as location-database]))
+  (:require [pinpet-api.location.database :as location-database]))
 
 (facts "find-location-by-pet"
   (fact "location exists"

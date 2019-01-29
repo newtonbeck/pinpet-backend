@@ -1,6 +1,6 @@
 (ns pinpet-api.location.conversion-test
   (:use midje.sweet)
-  (:require [pinpet.location.conversion :as conversion]))
+  (:require [pinpet-api.location.conversion :as conversion]))
 
 (facts "request->user"
   (fact "with token"
