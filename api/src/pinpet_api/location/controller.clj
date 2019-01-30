@@ -5,4 +5,4 @@
 (defn find-pets-locations-by-user [user]
   (->> user
     pet-database/find-pets-by-user
-    (map location-database/find-location-of-pet)))
+    (map #(assoc % :location (location-database/find-location-of-pet %)))))
