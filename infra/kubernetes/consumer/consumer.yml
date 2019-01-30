@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  labels:
+    name: consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumer
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+        - image: gcr.io/pinpet/consumer:latest
+          name: consumer
