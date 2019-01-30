@@ -1,4 +1,8 @@
-(ns pinpet-api.location.database)
+(ns pinpet-api.location.database
+  (:require [pinpet-api.config :refer [read-config]]
+            [clojure.java.jdbc :as jdbc]))
 
-(defn find-location-of-pet [pet]
-  (assoc pet :location {:latitude -23.5625172, :longitude -46.6935706}))
+(defn find-location-of-pet [{:keys [id]}]
+  (-> (read-config)
+    :db
+    (jdbc/query ["select * from locations where pet_id = ? order by id desc limit 1" id])))
