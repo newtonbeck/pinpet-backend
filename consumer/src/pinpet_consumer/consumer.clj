@@ -21,4 +21,5 @@
         topic (:topic mqtt-config)
         connection-string (str protocol "://" host ":" port)
         connection (mh/connect connection-string)]
+    (println "Consumer started...")
     (mh/subscribe connection {topic 0} consume)))
