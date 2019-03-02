@@ -1,5 +1,7 @@
 (ns api.main
-  (:gen-class))
+  (:gen-class)
+  (:require [com.stuartsierra.component :as component]
+            [api.components.system :as system]))
 
 (defn -main []
-  (println "Running..."))
+  (component/start (system/new-system)))

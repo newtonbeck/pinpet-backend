@@ -3,6 +3,7 @@
   :url "http://api.pinpet.com.br/ops/health"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.9.0"]
+                 [com.stuartsierra/component "0.4.0"]
                  [compojure "1.6.1"]
                  [ring/ring-defaults "0.3.2"]
                  [ring/ring-json "0.4.0"]
