@@ -8,9 +8,9 @@
                  [ring/ring-json "0.4.0"]
                  [org.clojure/java.jdbc "0.7.8"]
                  [mysql/mysql-connector-java "5.1.47"]]
-  :plugins [[lein-ring "0.12.4"]]
-  :ring {:handler api.handler/app}
+  :main ^:skip-aot api.main
   :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+  {:dev {:uberjar {:aot :all}
+         :dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.2"]
                         [midje "1.9.3"]]}})
