@@ -2,19 +2,19 @@
   (:require [com.stuartsierra.component :as component]
             [environ.core :refer [env]]))
 
-(def env-var-names
+(def env-var-keys
   [:db-url
    :db-driver-classname
    :db-user
    :db-password
    :http-port])
 
-(defn- read-env-var [env-var-name]
-  [env-var-name (env env-var-name)])
+(defn- read-env-var [env-var-key env-var-reader]
+  [env-var-key (env-var-reader env-var-key)])
 
-(defn load-config []
-  (->> env-var-names
-    (map read-env-var)
+(defn load-config [env-var-reader]
+  (->> env-var-keys
+    (map #(read-env-var % env-var-reader))
     (flatten)
     (apply assoc {})))
 
@@ -27,5 +27,5 @@
   (stop [this]
     this))
 
-(defn new-component
+(defn new-component []
   map->Config {})
