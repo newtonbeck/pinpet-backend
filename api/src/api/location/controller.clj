@@ -1,6 +1,6 @@
-(ns pinpet-api.location.controller
-  (:require [pinpet-api.pet.database :as pet-database]
-            [pinpet-api.location.database :as location-database]))
+(ns api.location.controller
+  (:require [api.pet.database :as pet-database]
+            [api.location.database :as location-database]))
 
 (defn find-pets-locations-by-user [user]
   (->> user

@@ -1,6 +1,6 @@
-(ns pinpet-api.login.conversion-test
+(ns api.login.conversion-test
   (:use midje.sweet)
-  (:require [pinpet-api.login.conversion :as conversion]))
+  (:require [api.login.conversion :as conversion]))
 
 (def email "luke@rebels.org")
 (def password "x-wing")

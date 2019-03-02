@@ -1,4 +1,4 @@
-(ns pinpet-api.login.security)
+(ns api.login.security)
 
 (defn user->token [user]
   (:id user))

@@ -1,5 +1,5 @@
-(ns pinpet-api.login.database
-  (:require [pinpet-api.config :refer [read-config]]
+(ns api.login.database
+  (:require [api.config :refer [read-config]]
             [clojure.java.jdbc :as jdbc]))
 
 (defn find-user-by-credentials [{:keys [email password]}]

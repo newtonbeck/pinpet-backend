@@ -1,6 +1,6 @@
-(ns pinpet-api.login.database-test
+(ns api.login.database-test
   (:use [midje.sweet])
-  (:require [pinpet-api.login.database :as database]))
+  (:require [api.login.database :as database]))
 
 (def id 1)
 (def name "Luke Skywalker")

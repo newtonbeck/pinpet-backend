@@ -1,5 +1,5 @@
-(ns pinpet-api.location.database
-  (:require [pinpet-api.config :refer [read-config]]
+(ns api.location.database
+  (:require [api.config :refer [read-config]]
             [clojure.java.jdbc :as jdbc]))
 
 (defn find-location-of-pet [{:keys [id]}]

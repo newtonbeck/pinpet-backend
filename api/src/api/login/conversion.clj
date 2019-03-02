@@ -1,4 +1,4 @@
-(ns pinpet-api.login.conversion
+(ns api.login.conversion
   (:require [ring.util.response :as ring-response]))
 
 (defn request->credentials [request]

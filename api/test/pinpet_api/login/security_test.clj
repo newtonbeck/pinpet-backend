@@ -1,6 +1,6 @@
-(ns pinpet-api.login.security-test
+(ns api.login.security-test
   (:use [midje.sweet])
-  (:require [pinpet-api.login.security :as security]))
+  (:require [api.login.security :as security]))
 
 (facts "user->token"
   (fact "with token"
