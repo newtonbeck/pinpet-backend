@@ -1,4 +1,4 @@
-(ns api.handler
+(ns api.http.routes
   (:require [compojure.core :refer :all]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
@@ -9,7 +9,7 @@
             [api.location.controller :as location-controller]
             [api.config :as config]))
 
-(defroutes app-routes
+(defroutes routes-config
   (POST "/api/login" request
     (-> request
       login-conversion/request->credentials
@@ -23,8 +23,8 @@
   (GET "/api/health" []
     (ring-response/response {:health true})))
 
-(def app
-  (-> app-routes
+(def api-routes
+  (-> routes-config
     wrap-json-body
     wrap-json-response
     (wrap-defaults api-defaults)))
