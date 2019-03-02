@@ -1,12 +1,19 @@
 (ns api.components.http-server
-  (:require [com.stuartsierra.component :as component]))
+  (:require [com.stuartsierra.component :as component]
+            [ring.adapter.jetty :refer [run-jetty]]))
+
+(defn- handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/plain"}
+   :body "Hallo Welt"})
 
 (defrecord HttpServerComponent []
   component/Lifecycle
   
   (start [this]
-    (println "Starting http component...")
-    this)
+    (let [options {:port 3000 :join? false}
+          http-server (run-jetty handler options)]
+      (assoc this :http-server http-server)))
   
   (stop [this]
     (println "Stopping http component...")
