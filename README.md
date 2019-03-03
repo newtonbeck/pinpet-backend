@@ -1,19 +1,29 @@
-# pinpet
+# Pinpet
 
-FIXME
+## API
 
-## Prerequisites
+To run API in your machine export the following environment variables:
 
-You will need [Leiningen][] 2.0.0 or above installed.
+```
+export DB_URL="jdbc:mysql://localhost:3306/pinpet"
+export DB_DRIVER_CLASSNAME="com.mysql.jdbc.Driver"
+export DB_USER="root"
+export DB_PASSWORD="toor"
+export HTTP_PORT="8080"
+```
 
-[leiningen]: https://github.com/technomancy/leiningen
+Run the following command to start the database:
 
-## Running
+```
+docker-compose up
+```
 
-To start a web server for the application, run:
+Enter in `api` folder and run the following command:
 
-    lein ring server
+```
+lein run
+```
 
-## License
+## Database
 
-Copyright © 2018 FIXME
+## Infrastructure
