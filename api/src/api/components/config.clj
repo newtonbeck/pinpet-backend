@@ -18,14 +18,15 @@
     (flatten)
     (apply assoc {})))
 
-(defrecord Config []
+(defrecord ConfigComponent []
   component/Lifecycle
 
   (start [this]
-    this)
+    (let [config (load-config env)]
+      (assoc this :config config)))
 
   (stop [this]
     this))
 
 (defn new-component []
-  map->Config {})
+  (map->ConfigComponent {}))

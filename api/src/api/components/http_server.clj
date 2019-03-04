@@ -3,14 +3,17 @@
             [ring.adapter.jetty :refer [run-jetty]]
             [api.http.routes :refer [api-routes]]))
 
-(defrecord HttpServerComponent []
+(defrecord HttpServerComponent [config]
   component/Lifecycle
-  
+
   (start [this]
-    (let [options {:port 3000 :join? false}
+    (let [port-as-text (get-in config [:config :http-port])
+          port (Integer/parseInt port-as-text)
+          options {:port port :join? false}
           http-server (run-jetty api-routes options)]
+      (println config)
       (assoc this :http-server http-server)))
-  
+
   (stop [this]
     (println "Stopping http component...")
     this))
