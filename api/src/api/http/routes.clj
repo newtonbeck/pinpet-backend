@@ -4,11 +4,13 @@
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [api.log-in.controller :as log-in-controller]
+            [api.register.controller :as register-controller]
             [api.location.controller :as location-controller]))
 
 (defroutes routes-config
   (context "/api" []
     (POST "/login" request log-in-controller/log-in)
+    (POST "/register" request register-controller/register)
     (GET "/pets/locations" request location-controller/find-pet-locations))
   (context "/ops" []
     (GET "/health" []
