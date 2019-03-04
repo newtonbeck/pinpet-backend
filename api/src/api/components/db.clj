@@ -16,8 +16,9 @@
                 (.setUser user)
                 (.setPassword password)
                 (.setMaxIdleTimeExcessConnections (* 30 60))
-                (.setMaxIdleTime (* 3 60 60 )))]
-      (assoc this :db db)))
+                (.setMaxIdleTime (* 3 60 60 )))
+          data-source {:datasource db}]
+      (assoc this :db data-source)))
 
   (stop [this]
     this))

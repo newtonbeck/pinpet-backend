@@ -4,8 +4,8 @@
             [api.log-in.security :as security]))
 
 (defn log-in [request]
-  (-> request
+  (->> request
       conversion/request->credentials
-      db/find-user-by-credentials
+      (db/find-user-by-credentials (:db request))
       security/user->token
       conversion/token->response))

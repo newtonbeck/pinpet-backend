@@ -17,7 +17,7 @@
 
 (defn wrap-app-component [f db]
   (fn [request]
-    (f (assoc request ::db db))))
+    (f (assoc request :db db))))
 
 (defn make-handler [db]
   (-> routes-config
