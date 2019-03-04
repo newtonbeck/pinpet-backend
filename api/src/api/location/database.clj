@@ -1,6 +1,5 @@
 (ns api.location.database
-  (:require [api.config :refer [read-config]]
-            [clojure.java.jdbc :as jdbc]))
+  (:require [clojure.java.jdbc :as jdbc]))
 
 (defn find-location-of-pet [db {:keys [id]}]
   (-> db
