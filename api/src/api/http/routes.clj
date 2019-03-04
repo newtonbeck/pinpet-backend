@@ -3,7 +3,6 @@
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [api.login.conversion :as login-conversion]
             [api.login.controller :as login-controller]
             [api.location.conversion :as location-conversion]
             [api.location.controller :as location-controller]
@@ -11,11 +10,7 @@
 
 (defroutes routes-config
   (context "/api" []
-    (POST "/login" request
-      (-> request
-        login-conversion/request->credentials
-        login-controller/log-in
-        login-conversion/token->response))
+    (POST "/login" request login-controller/log-in)
     (GET "/pets/locations" request
       (-> request
         location-conversion/request->user
