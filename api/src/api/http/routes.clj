@@ -15,8 +15,13 @@
     (GET "/health" []
       (ring-response/response {:health true}))))
 
-(def api-routes
+(defn wrap-app-component [f db]
+  (fn [request]
+    (f (assoc request ::db db))))
+
+(defn make-handler [db]
   (-> routes-config
+    (wrap-app-component db)
     wrap-json-body
     wrap-json-response
     (wrap-defaults api-defaults)))
