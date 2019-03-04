@@ -10,18 +10,20 @@
             [api.config :as config]))
 
 (defroutes routes-config
-  (POST "/api/login" request
-    (-> request
-      login-conversion/request->credentials
-      login-controller/log-in
-      login-conversion/token->response))
-  (GET "/api/pets/locations" request
-    (-> request
-      location-conversion/request->user
-      location-controller/find-pets-locations-by-user
-      location-conversion/pets->response))
-  (GET "/api/health" []
-    (ring-response/response {:health true})))
+  (context "/api" []
+    (POST "/login" request
+      (-> request
+        login-conversion/request->credentials
+        login-controller/log-in
+        login-conversion/token->response))
+    (GET "/pets/locations" request
+      (-> request
+        location-conversion/request->user
+        location-controller/find-pets-locations-by-user
+        location-conversion/pets->response)))
+  (context "/ops" []
+    (GET "/health" []
+      (ring-response/response {:health true}))))
 
 (def api-routes
   (-> routes-config
