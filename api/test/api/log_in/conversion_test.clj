@@ -1,6 +1,6 @@
-(ns api.login.conversion-test
+(ns api.log-in.conversion-test
   (:use midje.sweet)
-  (:require [api.login.conversion :as conversion]))
+  (:require [api.log-in.conversion :as conversion]))
 
 (def email "luke@rebels.org")
 (def password "x-wing")

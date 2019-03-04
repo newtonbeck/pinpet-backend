@@ -1,6 +1,6 @@
-(ns api.login.security-test
+(ns api.log-in.security-test
   (:use [midje.sweet])
-  (:require [api.login.security :as security]))
+  (:require [api.log-in.security :as security]))
 
 (facts "user->token"
   (fact "with token"

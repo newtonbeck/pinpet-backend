@@ -3,7 +3,7 @@
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [api.login.controller :as login-controller]
+            [api.log-in.controller :as login-controller]
             [api.location.conversion :as location-conversion]
             [api.location.controller :as location-controller]
             [api.config :as config]))

@@ -1,4 +1,4 @@
-(ns api.login.conversion
+(ns api.log-in.conversion
   (:require [ring.util.response :as ring-response]))
 
 (defn request->credentials [request]

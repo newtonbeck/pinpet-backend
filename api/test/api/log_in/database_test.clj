@@ -1,6 +1,6 @@
-(ns api.login.database-test
+(ns api.log-in.database-test
   (:use [midje.sweet])
-  (:require [api.login.database :as database]))
+  (:require [api.log-in.database :as database]))
 
 (def id 1)
 (def name "Luke Skywalker")

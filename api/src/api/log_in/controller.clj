@@ -1,7 +1,7 @@
-(ns api.login.controller
-  (:require [api.login.database :as db]
-            [api.login.conversion :as conversion]
-            [api.login.security :as security]))
+(ns api.log-in.controller
+  (:require [api.log-in.database :as db]
+            [api.log-in.conversion :as conversion]
+            [api.log-in.security :as security]))
 
 (defn log-in [request]
   (-> request

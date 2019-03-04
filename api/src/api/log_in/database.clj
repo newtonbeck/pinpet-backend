@@ -1,4 +1,4 @@
-(ns api.login.database
+(ns api.log-in.database
   (:require [api.config :refer [read-config]]
             [clojure.java.jdbc :as jdbc]))
 
