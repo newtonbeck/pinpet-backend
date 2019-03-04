@@ -6,6 +6,7 @@
                  [com.stuartsierra/component "0.4.0"]
                  [ring "1.7.1"]
                  [environ "1.1.0"]
+                 [com.mchange/c3p0 "0.9.5.3"]
 
                  [compojure "1.6.1"]
                  [ring/ring-defaults "0.3.2"]

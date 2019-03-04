@@ -11,11 +11,9 @@
           port (Integer/parseInt port-as-text)
           options {:port port :join? false}
           http-server (run-jetty api-routes options)]
-      (println config)
       (assoc this :http-server http-server)))
 
   (stop [this]
-    (println "Stopping http component...")
     this))
 
 (defn new-component []
