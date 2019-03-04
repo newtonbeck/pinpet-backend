@@ -3,19 +3,14 @@
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
-            [api.log-in.controller :as login-controller]
-            [api.location.conversion :as location-conversion]
+            [api.log-in.controller :as log-in-controller]
             [api.location.controller :as location-controller]
             [api.config :as config]))
 
 (defroutes routes-config
   (context "/api" []
-    (POST "/login" request login-controller/log-in)
-    (GET "/pets/locations" request
-      (-> request
-        location-conversion/request->user
-        location-controller/find-pets-locations-by-user
-        location-conversion/pets->response)))
+    (POST "/login" request log-in-controller/log-in)
+    (GET "/pets/locations" request location-controller/find-pet-locations))
   (context "/ops" []
     (GET "/health" []
       (ring-response/response {:health true}))))
