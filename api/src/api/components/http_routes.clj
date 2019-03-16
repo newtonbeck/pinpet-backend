@@ -1,4 +1,4 @@
-(ns api.http.routes
+(ns api.components.http-routes
   (:require [compojure.core :refer :all]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]

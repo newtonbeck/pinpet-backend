@@ -1,7 +1,7 @@
 (ns api.components.http-server
   (:require [com.stuartsierra.component :as component]
             [ring.adapter.jetty :refer [run-jetty]]
-            [api.http.routes :refer [make-handler]]))
+            [api.components.http-routes :refer [make-handler]]))
 
 (defrecord HttpServerComponent [config db]
   component/Lifecycle
