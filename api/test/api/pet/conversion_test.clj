@@ -1,6 +1,6 @@
-(ns api.location.conversion-test
+(ns api.pet.conversion-test
   (:use midje.sweet)
-  (:require [api.location.conversion :as conversion]))
+  (:require [api.pet.conversion :as conversion]))
 
 (facts "request->user"
   (fact "with token"
