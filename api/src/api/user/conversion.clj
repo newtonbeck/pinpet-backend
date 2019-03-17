@@ -1,4 +1,4 @@
-(ns api.log-in.conversion
+(ns api.user.conversion
   (:require [ring.util.response :as ring-response]))
 
 (defn request->credentials [request]
@@ -10,3 +10,9 @@
   (if token
     (ring-response/response {:token token})
     {:status 401}))
+
+(defn request->user [request]
+  (let [name (get-in request [:body "name"])
+        email (get-in request [:body "email"])
+        password (get-in request [:body "password"])]
+    {:name name, :email email, :password password}))

@@ -1,4 +1,4 @@
-(ns api.log-in.security)
+(ns api.user.security)
 
 (defn user->token [user]
   (:id user))
