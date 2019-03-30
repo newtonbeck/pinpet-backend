@@ -1,5 +1,6 @@
-(ns api.components.http-routes
-  (:require [compojure.core :refer :all]
+(ns api.components.http-handler
+  (:require [com.stuartsierra.component :as component]
+            [compojure.core :refer :all]
             [ring.util.response :as ring-response]
             [ring.middleware.json :refer [wrap-json-body wrap-json-response]]
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
@@ -20,9 +21,23 @@
   (fn [request]
     (f (assoc request :db db))))
 
-(defn make-handler [db]
+(defn- make-handler [db]
   (-> routes-config
     (wrap-app-component db)
     wrap-json-body
     wrap-json-response
     (wrap-defaults api-defaults)))
+
+(defrecord HttpHandlerComponent [config db]
+  component/Lifecycle
+  
+  (start [this]
+    (let [db-pool (:db db)
+          handler (make-handler db-pool)]
+      (assoc this :http-handler handler)))
+
+  (stop [this]
+    this))
+
+(defn new-component []
+  (map->HttpHandlerComponent {}))
