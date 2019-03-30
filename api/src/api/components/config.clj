@@ -7,7 +7,8 @@
    :db-driver-classname
    :db-user
    :db-password
-   :http-port])
+   :http-port
+   :jwt-secret])
 
 (defn- read-env-var [env-var-key env-var-reader]
   [env-var-key (env-var-reader env-var-key)])
