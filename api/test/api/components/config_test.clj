@@ -7,7 +7,8 @@
   :db-driver-classname  "b"
   :db-user              "c"
   :db-password          "d"
-  :http-port            "e"})
+  :http-port            "e"
+  :jwt-secret           "f"})
 
 (defn env-mock [env-var-key]
   (get env-vars-mock env-var-key))
