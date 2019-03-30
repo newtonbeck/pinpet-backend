@@ -19,9 +19,7 @@
 
 (facts "token->response"
   (fact "with token"
-    (conversion/token->response token) => {:body {:token token}, :headers {}, :status 200})
-  (fact "without token"
-    (conversion/token->response nil) => {:status 401}))
+    (conversion/token->response token) => {:status 200 :body token :headers {"Content-type" "text/plain"}}))
 
 (facts "request->user conversion"
   (fact "converts with name, email and password"

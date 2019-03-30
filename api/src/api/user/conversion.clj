@@ -7,9 +7,9 @@
     {:email email, :password password}))
 
 (defn token->response [token]
-  (if token
-    (ring-response/response {:token token})
-    {:status 401}))
+  {:status 200
+   :body token
+   :headers {"Content-type" "text/plain"}})
 
 (defn request->user [request]
   (let [name (get-in request [:body "name"])

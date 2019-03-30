@@ -11,5 +11,5 @@
     :config (config/new-component)
     :db (component/using (db/new-component) [:config])
     :http-routes (http-routes/new-component)
-    :http-handler (component/using (http-handler/new-component) [:config :db :http-routes])
+    :http-handler (component/using (http-handler/new-component) {:config-component :config :db-component :db :http-routes-component :http-routes})
     :http-server (component/using (http-server/new-component) [:config :http-handler])))
