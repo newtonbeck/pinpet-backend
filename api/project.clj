@@ -12,7 +12,8 @@
                  [ring/ring-defaults "0.3.2"]
                  [ring/ring-json "0.4.0"]
                  [org.clojure/java.jdbc "0.7.8"]
-                 [mysql/mysql-connector-java "5.1.47"]]
+                 [mysql/mysql-connector-java "5.1.47"]
+                 [crypto-password "0.2.1"]]
   :main ^:skip-aot api.main
   :profiles
   {:dev {:uberjar {:aot :all}
