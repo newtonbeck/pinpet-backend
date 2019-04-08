@@ -9,5 +9,5 @@
 
 (defn find-user-by-email [db email]
   (-> db
-    (jdbc/query ["select * from users where email = ?" email])
+    (jdbc/query ["select * from `users` where `email` = ?" email])
     first))

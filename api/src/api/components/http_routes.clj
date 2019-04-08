@@ -10,6 +10,7 @@
     (POST "/login" request user/log-in)
     (POST "/register" request user/register)
     (GET "/pets" request pet/list-my-pets)
+    (POST "/pets" request pet/create-pet)
     (GET "/pets/locations" request pet/find-my-pets-locations))
   (context "/ops" []
     (GET "/health" []

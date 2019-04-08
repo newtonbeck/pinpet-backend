@@ -1,5 +1,6 @@
-(ns api.pet.conversion
-  (:require [ring.util.response :as ring-response]))
+(ns api.pet.conversion)
 
-(defn pets->response [pets]
-  (ring-response/response pets))
+(defn request-&-user->pet [request user]
+  (let [name (get-in request [:body "name"])
+        id (:id user)]
+    {:name name, :user-id id}))
