@@ -1,4 +1,4 @@
-CREATE DATABASE `pinpet`;
+CREATE DATABASE `pinpet` CHARACTER SET `UTF8` COLLATE `utf8_bin`;
 
 USE `pinpet`;
 
