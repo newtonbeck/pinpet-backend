@@ -7,9 +7,10 @@
     (if (empty? claims) nil claims)))
 
 (defn claims->user [claims]
-  (let [id (:sub claims)
+  (let [id-as-text (:sub claims)
+        id-as-number (Integer/parseInt id-as-text)
         name (:name claims)]
-    {:id id :name name}))
+    {:id id-as-number :name name}))
 
 (defn create-token [secret user]
   (let [id-as-number (:id user)

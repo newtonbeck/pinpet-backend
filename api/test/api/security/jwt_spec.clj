@@ -10,7 +10,7 @@
 
 (facts "claims->user"
   (fact "returns user from claims"
-    (jwt/claims->user {:sub 1 :name "Luke Skywalker"}) => {:id 1 :name "Luke Skywalker"}))
+    (jwt/claims->user {:sub "1" :name "Luke Skywalker"}) => {:id 1 :name "Luke Skywalker"}))
 
 (def secret "f2b51a05-1f2f-4e83-b99e-c5e93214198d")
 
