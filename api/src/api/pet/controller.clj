@@ -16,7 +16,7 @@
   (if-let [claims (jwt/claims? request)]
     (->> claims
       (jwt/claims->user)
-      (database/find-pets-by-user (:db request))
+      (database/find-pets-by-user-with-tracker (:db request))
       (map #(assoc % :location (database/find-pet-location (:db request) %)))
       (ring-response/response))
     {:status 401}))
