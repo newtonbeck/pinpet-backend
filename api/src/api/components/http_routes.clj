@@ -3,7 +3,8 @@
             [ring.util.response :as ring-response]
             [compojure.core :refer :all]
             [api.user.controller :as user]
-            [api.pet.controller :as pet]))
+            [api.pet.controller :as pet]
+            [api.tracker.controller :as tracker]))
 
 (defroutes routes-config
   (context "/api" []
@@ -11,7 +12,8 @@
     (POST "/register" request user/register)
     (GET "/pets" request pet/list-my-pets)
     (POST "/pets" request pet/create-pet)
-    (GET "/pets/locations" request pet/find-my-pets-locations))
+    (GET "/pets/locations" request pet/find-my-pets-locations)
+    (POST "/trackers/put-on-pet" request tracker/put-tracker-on-pet))
   (context "/ops" []
     (GET "/health" []
       (ring-response/response {:health true}))))
